@@ -1,4 +1,5 @@
-import Landing from "./Landing/landing"
+import Landing from "./Landing/Landing"
+
 
 function App() {
 
