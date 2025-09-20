@@ -1,13 +1,8 @@
-import Landing from "./Landing/Landing"
-
-
-function App() {
-
-
+import { Navbar } from "./Landing/Navbar"
+const App = () => {
   return (
-    <>
-        <Landing></Landing>
-    </>
+    
+    <div><Navbar></Navbar></div>
   )
 }
 
