@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode }) => {
       {/* Navigation Links */}
       <ul className="flex gap-6 list-none">
         <li><a href="#home" className="hover:opacity-70">Home</a></li>
-        <li><a href="#about" className="hover:opacity-70">About</a></li>
+
         <li><a href="#work" className="hover:opacity-70">Work</a></li>
         <li><a href="#experience" className="hover:opacity-70">Experience</a></li>
         <li><a href="#skills" className="hover:opacity-70">Skills</a></li>

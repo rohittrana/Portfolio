@@ -1,12 +1,26 @@
 import { useState } from "react";
 import { Navbar } from "./Navbar";
+import { motion } from "framer-motion";
 
 export const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
 
+  const skills = [
+    "C",
+    "C++",
+    "Java",
+    "JavaScript",
+    "Python",
+    "Ethereum",
+    "React",
+    "Next.js",
+    "Prisma",
+    "MongoDB",
+  ];
+
   return (
     <div
-      className={`min-h-screen scroll-smooth ${
+      className={`min-h-screen scroll-smooth font-['Space_Mono'] transition-all duration-500 ${
         darkMode ? "bg-black text-white" : "bg-white text-black"
       }`}
     >
@@ -20,29 +34,35 @@ export const Home = () => {
       >
         <div className="text-center max-w-4xl">
           <h1 className="text-6xl font-bold mb-6">
-            Hi, I'm{" "}
+            Hi, I’m{" "}
             <span className={darkMode ? "text-blue-400" : "text-blue-600"}>
               Rohit Rana
             </span>
           </h1>
-          <p className="text-2xl mb-8 opacity-80">
-            Full Stack Developer | Problem Solver | Tech Enthusiast
+
+          <p className="text-2xl mb-8 opacity-85">
+            Full Stack Developer | Problem Solver | Lifelong Learner
           </p>
-          <p className="text-lg mb-12 opacity-70 max-w-2xl mx-auto">
-            I build exceptional digital experiences that make people's lives
-            easier. Passionate about creating clean, efficient, and
-            user-friendly applications.
+
+          <p className="text-lg mb-12 opacity-75 max-w-2xl mx-auto leading-relaxed">
+            I’m a developer who enjoys turning complex ideas into smooth,
+            scalable, and interactive web applications. My focus lies in
+            crafting clean user experiences and writing code that’s easy to
+            maintain and extend. Currently, I’m exploring how{" "}
+            <span className="font-semibold">AI and Blockchain</span> can merge to
+            build smarter and more secure applications.
           </p>
+
           <div className="flex gap-4 justify-center">
             <a
-              href="#work"
+              href="#skills"
               className={`px-8 py-3 rounded ${
                 darkMode
                   ? "bg-blue-600 hover:bg-blue-700"
                   : "bg-blue-500 hover:bg-blue-600"
               } text-white transition`}
             >
-              View My Work
+              My Skills
             </a>
             <a
               href="#contact"
@@ -58,48 +78,93 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* Skills Section with 3D Rotating Cube */}
       <section
-        id="about"
-        className={`py-20 px-4 ${darkMode ? "bg-gray-900" : "bg-gray-100"}`}
+        id="skills"
+        className="min-h-screen flex flex-col justify-center items-center text-center px-4 py-24"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-center">About Me</h2>
-          <p className="text-lg opacity-80 text-center">
-            I'm Rohit Rana, a passionate developer who loves solving complex
-            problems with simple, elegant solutions.
-          </p>
-        </div>
-      </section>
+        <h2 className="text-4xl font-bold mb-12">My Skills</h2>
 
-      {/* Work Section */}
-      <section id="work" className="py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">My Work</h2>
-          <p className="opacity-80">
-            Here are some of the projects I’ve worked on recently.
-          </p>
+        <div className="relative w-64 h-64 [perspective:1000px]">
+          <motion.div
+            animate={{ rotateY: 360 }}
+            transition={{ repeat: Infinity, duration: 18, ease: "linear" }}
+            className="absolute inset-0 [transform-style:preserve-3d]"
+          >
+            {skills.slice(0, 6).map((skill, i) => (
+              <div
+                key={skill}
+                className={`absolute inset-0 flex justify-center items-center text-lg font-bold rounded-xl shadow-xl ${
+                  darkMode ? "bg-gray-800 text-white" : "bg-gray-200 text-black"
+                }`}
+                style={{
+                  transform: `rotateY(${i * 60}deg) translateZ(120px)`,
+                }}
+              >
+                {skill}
+              </div>
+            ))}
+          </motion.div>
         </div>
+
+        <p className="mt-16 text-base opacity-80">
+          Also familiar with:{" "}
+          <span className="font-semibold">
+            {skills.slice(6).join(", ")}.
+          </span>
+        </p>
       </section>
 
       {/* Contact Section */}
       <section
         id="contact"
-        className={`py-20 px-4 ${
-          darkMode ? "bg-blue-900" : "bg-blue-500"
-        } text-white`}
+        className={`py-28 px-4 ${
+          darkMode ? "bg-blue-900 text-white" : "bg-blue-500 text-white"
+        } transition`}
       >
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
-          <p className="mb-6">
-            I'm always open to new opportunities and collaborations.
+          <h2 className="text-4xl font-bold mb-8">Get In Touch</h2>
+          <p className="mb-10 opacity-90 max-w-xl mx-auto leading-relaxed">
+            Have a project, idea, or collaboration in mind? Let’s connect and
+            build something meaningful together. I’d love to hear from you!
           </p>
-          <a
-            href="mailto:yourmail@example.com"
-            className="inline-block px-8 py-3 rounded bg-white text-blue-600 hover:bg-gray-100 transition font-semibold"
+
+          <motion.form
+            action="https://formspree.io/f/maygeddq"
+            method="POST"
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col gap-5 max-w-md mx-auto bg-white text-black p-8 rounded-2xl shadow-2xl"
           >
-            Email Me
-          </a>
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              className="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              className="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              rows={4}
+              className="p-3 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:scale-105 transition-all font-semibold"
+            >
+              Send Message
+            </button>
+          </motion.form>
         </div>
       </section>
 
@@ -107,7 +172,7 @@ export const Home = () => {
       <footer
         className={`py-8 px-4 text-center ${
           darkMode ? "bg-gray-900" : "bg-gray-100"
-        }`}
+        } transition`}
       >
         <p className="opacity-70">© 2025 Rohit Rana. All rights reserved.</p>
       </footer>
