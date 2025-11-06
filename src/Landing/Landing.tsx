@@ -6,54 +6,7 @@ import {
   Twitter,
   Mail,
   Code2,
- 
 } from "lucide-react";
-
-const skills = [
-  "C",
-  "C++",
-  "Python",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Express",
-  "Node.js",
-  "MongoDB",
-  "Next.js",
-  "Prisma",
-  "WebSocket",
-  "AWS",
-  "Docker",
-  "Kubernetes",
-  "Linux",
-];
-
-const projects = [
-  {
-    title: "Coming Soon",
-    description:
-      "Currently working on exciting projects that showcase real-time communication, full-stack development, and data-driven solutions. Check back soon!",
-    tags: ["React", "Node.js", "WebSocket", "TypeScript"],
-    github: "https://github.com/rohittrana",
-    live: null,
-  },
-  {
-    title: "Your Next Project",
-    description:
-      "Exploring opportunities to build scalable web applications with modern technologies. Open to collaborations and innovative ideas!",
-    tags: ["Next.js", "AWS", "Docker", "Prisma"],
-    github: "https://github.com/rohittrana",
-    live: null,
-  },
-  {
-    title: "Data Science Projects",
-    description:
-      "Applying machine learning and data analysis techniques to solve real-world problems. Currently learning and building projects in this domain.",
-    tags: ["Python", "Data Science", "React", "MongoDB"],
-    github: "https://github.com/rohittrana",
-    live: null,
-  },
-];
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/rohittrana", label: "GitHub" },
@@ -205,7 +158,6 @@ export default function Home() {
                   ? "bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600"
                   : "bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700"
               } text-white`}
-              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               View Projects
             </a>
@@ -216,11 +168,63 @@ export default function Home() {
                   ? "border-rose-400 text-rose-400 hover:bg-rose-400 hover:text-black"
                   : "border-rose-600 text-rose-600 hover:bg-rose-600 hover:text-white"
               }`}
-              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Contact Me
             </a>
           </div>
+        </motion.div>
+      </section>
+
+      {/* ✅ About Section */}
+      <section
+        id="about"
+        className={`px-6 py-20 ${darkMode ? "bg-gray-900" : "bg-gray-100"} transition-colors`}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h2
+            className={`text-4xl font-bold mb-6 ${
+              darkMode ? "text-rose-400" : "text-rose-600"
+            }`}
+          >
+            About Me
+          </h2>
+          <p className="text-lg leading-relaxed mb-4">
+            Hi, I'm <span className="font-semibold">Rohit Rana</span> — a
+            passionate{" "}
+            <span className={darkMode ? "text-rose-400" : "text-rose-600"}>
+              Full-Stack Web Developer
+            </span>{" "}
+            who loves building fast, scalable, and user-friendly applications
+            using modern JavaScript technologies.
+          </p>
+          <p className="text-lg leading-relaxed mb-4">
+            I specialize in the{" "}
+            <span className="font-semibold">MERN stack</span> (MongoDB, Express,
+            React, Node.js) and have experience with{" "}
+            <span className={darkMode ? "text-rose-400" : "text-rose-600"}>
+              TypeScript, Tailwind CSS, and AWS
+            </span>
+            . I’m also exploring{" "}
+            <span className={darkMode ? "text-rose-400" : "text-rose-600"}>
+              Blockchain development
+            </span>{" "}
+            using Ethereum and MetaMask.
+          </p>
+          <p className="text-lg leading-relaxed">
+            Currently, I’m focusing on mastering{" "}
+            <span className={darkMode ? "text-rose-400" : "text-rose-600"}>
+              React and System Design
+            </span>{" "}
+            — aiming to build apps that are beautifully architected and
+            performance-driven. When I’m not coding, I enjoy exploring new tech
+            trends and creating UI ideas.
+          </p>
         </motion.div>
       </section>
 
@@ -230,10 +234,7 @@ export default function Home() {
           darkMode ? "bg-black" : "bg-gray-100"
         }`}
       >
-        <p
-          className="mb-4 opacity-70"
-          style={{ fontFamily: "'Nunito', sans-serif" }}
-        >
+        <p className="mb-4 opacity-70">
           © 2025 Rohit Rana. Crafted with passion and precision.
         </p>
 

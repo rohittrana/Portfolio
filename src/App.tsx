@@ -1,13 +1,11 @@
-import { Navbar } from "./Landing/Navbar"
-import {Home} from './Landing/Landing';
+import Home from './Landing/Landing';
+
 const App = () => {
   return (
-    
     <div>
-    <Home></Home>
+      <Home />
     </div>
+  );
+};
 
-  )
-}
-
-export default App
+export default App;
